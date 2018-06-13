@@ -1,7 +1,7 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "Ben Harden"
+  title: "PEP Cruise"
 output:
   html_document:
     theme: flatly
