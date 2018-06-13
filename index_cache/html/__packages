@@ -5,6 +5,4 @@ utils
 grDevices
 graphics
 stats
-sea
 leaflet
-bindrcpp
