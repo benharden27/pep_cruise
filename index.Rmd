@@ -20,16 +20,16 @@ stations <- tibble::tribble(
 
 ```{r}
 
-# m <- leaflet()
-# m <- setView(m, lng =  -70.80, lat = 41.35, zoom = 10)
-# m <- addTiles(m)
-# m <- addPolylines(m, lng = elg$lon, lat = elg$lat)
-# m <- addMarkers(m, lng = stations$lon, lat = stations$lat,
-#                 popup = paste(stations$station,
-#                               stations$lon,
-#                               stations$lat,
-#                               format(stations$time), sep = ","))
-# m
+m <- leaflet()
+m <- setView(m, lng =  -70.80, lat = 41.35, zoom = 10)
+m <- addTiles(m)
+m <- addPolylines(m, lng = elg$lon, lat = elg$lat)
+m <- addMarkers(m, lng = stations$lon, lat = stations$lat,
+                popup = paste(stations$station,
+                              stations$lon,
+                              stations$lat,
+                              format(stations$time), sep = ","))
+m
 
 ```
 
