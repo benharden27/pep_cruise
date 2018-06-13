@@ -1,0 +1,37 @@
+---
+title: "PEP Cruise Map"
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(cache=TRUE, message = FALSE, echo = FALSE, warning = FALSE, error = FALSE, fig.align="center")
+
+library(leaflet)
+
+elg <- readr::read_csv("elg_data.csv")
+
+stations <- tibble::tribble(
+  ~station, ~lon, ~lat, ~time,
+  "002", -70.98733, 41.192, as.POSIXct("2018-06-10 00:00",tz = "EDT"),
+  "003", -71.09333, 41.425, as.POSIXct("2018-06-10 08:00", tz = "EDT"),
+  "004", -70.87, 41.48167, as.POSIXct("2018-06-10 13:00", tz = "EDT")
+)
+
+```
+
+```{r}
+
+m <- leaflet()
+m <- setView(m, lng =  -70.80, lat = 41.35, zoom = 10)
+m <- addTiles(m)
+m <- addPolylines(m, lng = elg$lon, lat = elg$lat)
+m <- addMarkers(m, lng = stations$lon, lat = stations$lat,
+                popup = paste(stations$station,
+                              stations$lon,
+                              stations$lat,
+                              format(stations$time), sep = ","))
+m
+
+```
+
+
