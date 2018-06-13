@@ -11,9 +11,9 @@ elg <- readr::read_csv("elg_data.csv")
 
 stations <- tibble::tribble(
   ~station, ~lon, ~lat, ~time,
-  "002", -70.98733, 41.192, as.POSIXct("2018-06-10 00:00",tz = "EDT"),
-  "003", -71.09333, 41.425, as.POSIXct("2018-06-10 08:00", tz = "EDT"),
-  "004", -70.87, 41.48167, as.POSIXct("2018-06-10 13:00", tz = "EDT")
+  "002", -70.98733, 41.192, as.POSIXct("2018-06-10 00:00 EDT"),
+  "003", -71.09333, 41.425, as.POSIXct("2018-06-10 08:00 EDT"),
+  "004", -70.87, 41.48167, as.POSIXct("2018-06-10 13:00 EDT")
 )
 
 ```
@@ -28,9 +28,12 @@ m <- addMarkers(m, lng = stations$lon, lat = stations$lat,
                 popup = paste(stations$station,
                               stations$lon,
                               stations$lat,
-                              format(stations$time), sep = ","))
+                              format(stations$time,tz = "US/Eastern"), sep = ","))
 m
 
+```
+```{r}
+knitr::kable(stations[,1:3])
 ```
 
 
