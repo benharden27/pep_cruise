@@ -5,6 +5,9 @@ title: "PEP Cruise Map"
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(cache=TRUE, message = FALSE, echo = FALSE, warning = FALSE, error = FALSE, fig.align="center")
 
+```
+
+```{r}
 library(leaflet)
 
 elg <- sea::read_elg("Event60sec_112.elg")
@@ -15,10 +18,6 @@ stations <- tibble::tribble(
   "003", -71.09333, 41.425, as.POSIXct("2018-06-10 08:00 EDT"),
   "004", -70.87, 41.48167, as.POSIXct("2018-06-10 13:00 EDT")
 )
-
-```
-
-```{r}
 
 m <- leaflet()
 m <- setView(m, lng =  -70.80, lat = 41.35, zoom = 10)
