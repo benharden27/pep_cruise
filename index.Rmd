@@ -7,7 +7,7 @@ knitr::opts_chunk$set(cache=TRUE, message = FALSE, echo = FALSE, warning = FALSE
 
 library(leaflet)
 
-elg <- readr::read_csv("elg_data.csv")
+elg <- sea::read_elg("Event60sec_112.elg")
 
 stations <- tibble::tribble(
   ~station, ~lon, ~lat, ~time,
