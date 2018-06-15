@@ -27,7 +27,9 @@ addMarkers(lng = stations$lon, lat = stations$lat,
                 popup = paste(stations$station,
                               stations$lon,
                               stations$lat,
-                              format(stations$time,tz = "US/Eastern"), sep = ","))
+                              format(stations$time,tz = "US/Eastern"), sep = ",")) %>%
+  addMeasure(primaryLengthUnit = "kilometers", primaryAreaUnit = "sqmeters") %>%
+  addMiniMap()
 m
 ```
 ```{r}
