@@ -19,17 +19,16 @@ stations <- tibble::tribble(
   "004", -70.87, 41.48167, as.POSIXct("2018-06-10 13:00 EDT")
 )
 
-m <- leaflet()
-m <- setView(m, lng =  -70.80, lat = 41.35, zoom = 10)
-m <- addTiles(m)
-m <- addPolylines(m, lng = elg$lon, lat = elg$lat)
-m <- addMarkers(m, lng = stations$lon, lat = stations$lat,
+m <- leaflet() %>%
+setView(lng =  -70.80, lat = 41.35, zoom = 10) %>%
+addTiles() %>%
+addPolylines(lng = elg$lon, lat = elg$lat) %>%
+addMarkers(lng = stations$lon, lat = stations$lat,
                 popup = paste(stations$station,
                               stations$lon,
                               stations$lat,
                               format(stations$time,tz = "US/Eastern"), sep = ","))
 m
-
 ```
 ```{r}
 knitr::kable(stations[,1:3])
